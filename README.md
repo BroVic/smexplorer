@@ -1,2 +1,2 @@
 # SMExplorer
-A R package for the exploratory analysis of social media metrics
+An R package for the exploratory analysis of social media metrics
