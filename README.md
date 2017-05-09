@@ -1,2 +1,2 @@
 # SMExplorer
-Package is currently being developed...
+An R package for the exploratory analysis of social media metrics
