@@ -9,3 +9,4 @@ SMExplorer.Rproj
 authentication.R
 >>>>>>> origin/master
 .httr-oauth
+R/oauth.R
