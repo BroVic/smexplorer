@@ -1,6 +1,6 @@
 Package: SMExplorer
 Title: Interactive Exploratory Data Analysis of Social Media Metrics
-Version: 0.0.0.9000
+Version: 0.0.0.9001
 Authors@R: person("Victor", "Ordu", email = "victorordu@outlook.com",
     role = c("aut", "cre"))
 Description: Displays key social media data
@@ -20,7 +20,7 @@ Imports:
     tm (>= 0.6.2),
     twitteR (>= 1.1.9),
     wordcloud (>= 2.5)
-License: What license is it under?
+License: MIT
 Encoding: UTF-8
 LazyData: true
 RoxygenNote: 5.0.1
