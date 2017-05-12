@@ -2,11 +2,18 @@
 % Please edit documentation in R/explore.R
 \name{explore}
 \alias{explore}
-\title{Explore social media data}
+\title{Explore Social Media Data.}
 \usage{
 explore()
 }
+\value{
+This function does not return. See \code{\link{runApp}}
+}
 \description{
-Explore social media data
+\code{explore} Launches a new Shiny application.
+}
+\details{
+This is a wrapper function for shiny::runApp, which is the core 
+function used to launch Shiny applications.
 }
 
