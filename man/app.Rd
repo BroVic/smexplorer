@@ -8,6 +8,9 @@
 \usage{
 app
 }
+\value{
+A Shiny application object
+}
 \description{
 SMExplorer Shiny application object
 }
