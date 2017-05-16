@@ -6,7 +6,13 @@
 \usage{
 plotDensity(data = x, entry = character(), daily = FALSE)
 }
+\arguments{
+\item{data}{The datafrane to be plotted from}
+
+\item{entry}{The character input value i.e. the search term}
+
+\item{daily}{logical - TRUE if plot represents daily data}
+}
 \description{
 \code{plotDensity} Generates a density plot.
 }
-

@@ -6,7 +6,9 @@
 \usage{
 createWordList(x)
 }
+\arguments{
+\item{x}{An atomic vector of polarities}
+}
 \description{
 \code{createWordList} Generates list of positive and negative words.
 }
-

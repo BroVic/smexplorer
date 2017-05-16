@@ -6,7 +6,15 @@
 \usage{
 prepareObjects(data)
 }
+\arguments{
+\item{data}{A dataframe}
+}
+\value{
+A list of 3 containing
+    - a split data frame (along the lines of factor \code{isRetweet})
+    - \code{main}: the data frame wherein \code{isRetweet == FALSE}
+    - polarity for text in \code{main}
+}
 \description{
 \code{prepareObjects} Internal objects used in assessing polarity.
 }
-

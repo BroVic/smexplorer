@@ -6,7 +6,11 @@
 \usage{
 processBagofWords(x, table)
 }
+\arguments{
+\item{x}{A data frame}
+
+\item{table}{A list with different sign values for polarity}
+}
 \description{
 \code{processBagofwords} Process text prior to visualisation.
 }
-

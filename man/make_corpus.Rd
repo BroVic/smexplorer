@@ -6,7 +6,14 @@
 \usage{
 make_corpus(GText, stem = TRUE)
 }
+\arguments{
+\item{GText}{A character vector}
+
+\item{stem}{Use stemming. Defaults to \code{TRUE}}
+}
+\value{
+A corpus
+}
 \description{
 \code{make_corpus} Builds a corpus.
 }
-
