@@ -2,9 +2,7 @@
 .Rproj.user
 .Rhistory
 .RData
-.Rbuildignore 
-NAMESPACE 
-SMExplorer.Rproj 
+
 =======
 authentication.R
 >>>>>>> origin/master
