@@ -16,3 +16,4 @@ This function does not return. See \code{\link{runApp}}
 This is a wrapper function for shiny::runApp, which is the core 
 function used to launch Shiny applications.
 }
+

@@ -12,3 +12,4 @@ textOnLoadedTweets
 \code{TextOnLoadedTweets} A character vector for use on the user interface.
 }
 \keyword{datasets}
+

@@ -12,3 +12,4 @@ textOnTweetsByPlatform
 \code{TextOnTweetsByPlatform} A string used for labelling plots.
 }
 \keyword{datasets}
+
