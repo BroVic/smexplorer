@@ -73,7 +73,7 @@ app <- shinyApp(
           ),
 
           div(style = "border: 1px dotted black; background: dark-grey;
-              width: 60px",
+              width: 52px",
               actionButton("goButton", label = "Go!")),
 
           hr(),
