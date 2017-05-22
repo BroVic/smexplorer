@@ -4,6 +4,7 @@
 #' @import lubridate
 #' @import shiny
 #' @import twitteR
+#' @importFrom network %v%
 app <- shinyApp(
 
   ui = fluidPage(
