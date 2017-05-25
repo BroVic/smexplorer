@@ -1,9 +1,5 @@
-<<<<<<< HEAD
 .Rproj.user
 .Rhistory
 .RData
-
-=======
-authentication.R
->>>>>>> origin/master
+.Ruserdata
 .httr-oauth
