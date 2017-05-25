@@ -18,3 +18,4 @@ A list of 3 containing
 \description{
 \code{prepareObjects} Internal objects used in assessing polarity.
 }
+

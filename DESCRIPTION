@@ -1,6 +1,6 @@
 Package: SMExplorer
 Title: Interactive Exploratory Data Analysis of Social Media Metrics
-Version: 0.0.0.9002
+Version: 0.0.0.9003
 Authors@R: person("Victor", "Ordu", email = "victorordu@outlook.com",
     role = c("aut", "cre"))
 Description: Contains functions and related objects to enable the exploratory
@@ -24,4 +24,4 @@ Imports:
 License: MIT + file LICENSE
 Encoding: UTF-8
 LazyData: true
-RoxygenNote: 6.0.1
+RoxygenNote: 5.0.1

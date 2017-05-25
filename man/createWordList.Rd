@@ -12,3 +12,4 @@ createWordList(x)
 \description{
 \code{createWordList} Generates list of positive and negative words.
 }
+

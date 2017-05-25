@@ -14,3 +14,4 @@ processBagofWords(x, table)
 \description{
 \code{processBagofwords} Process text prior to visualisation.
 }
+

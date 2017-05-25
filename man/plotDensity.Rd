@@ -16,3 +16,4 @@ plotDensity(data = x, entry = character(), daily = FALSE)
 \description{
 \code{plotDensity} Generates a density plot.
 }
+
