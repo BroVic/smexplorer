@@ -3,6 +3,7 @@ An R package for the exploratory analysis of social media metrics
 
 ## SMExplorer is currently in beta-mode
 You are invited to contribute to this project by helping us test the app, identifying issues and suggesting possible changes and new features. To participate please follow the following instructions: 
+
 ### Install R
 R is a programming language as well as an environment that is tailored for data analysis. Visit <https://cloud.r-project.org> to get the current version that suits your system.
 Skip this step if you already have it. This application depends on R version 3.3.3 and above. To check the version you have installed run
@@ -26,6 +27,7 @@ install.packages("devtools")
 library(devtools)
 install_github("NESREA/SMExplorer")
 ```
+
 #### To build your own copy
 1. Fork this repository and get a local copy for your system using `git clone`. Be sure of the folder in which you are going to store the repository.
 2. (For Windows) open the command prompt and navigate to the parent folder of the repository using the `cd` command.
@@ -38,6 +40,7 @@ R CMD build SMExplorer
 ```
 R CMD INSTALL SMExplorer_0.0.0.9000.tar.gz
 ```
+
 ### Test the App  
 #### Run the Application  
 The app has only one externally accessible function, `explore()`. Now that you have installed it, you will have to load it into your open R session as follows:
