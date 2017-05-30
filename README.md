@@ -1,4 +1,6 @@
-# SMExplorer
+# SMExplorer  
+[![Travis-CI Build Status](https://travis-ci.org/BroVic/SMExplorer.svg?branch=master)](https://travis-ci.org/BroVic/SMExplorer)
+
 An R package for the exploratory analysis of social media metrics
 
 ## SMExplorer is currently in beta-mode
