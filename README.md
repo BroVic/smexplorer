@@ -37,10 +37,10 @@ install_github("NESREA/SMExplorer")
 ```
 R CMD build SMExplorer
 ```
-4. Check the folder's contents using `dir`. If all went well, you should see a compressed file with name `SMExplorer_0.0.0.9000.tar.gz`. This is the output of a successful build.
+4. Check the folder's contents using `dir`. If all went well, you should see a compressed file with name `SMExplorer_x.x.x.9xxx.tar.gz`. This is the output of a successful build.
 5. Install SMExplorer into the R library, from where it's functionalities can be deployed. 
 ```
-R CMD INSTALL SMExplorer_0.0.0.9000.tar.gz
+R CMD INSTALL SMExplorer_x.x.x.9xxx.tar.gz
 ```
 
 ### Test the App  
