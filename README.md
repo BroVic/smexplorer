@@ -77,7 +77,7 @@ On first use, you will find an error message telling you that you have not regis
 
 You are likely to see a second error message saying *"Bad HTTP"*.
 
-![](img/error-badrequest.PNG)
+![](error-badrequest.PNG)
 This is because no search term has been supplied for analysis. For now, the app has not been enabled to provide search values on start, but that feature is coming soon. To begin your analysis, enter a term you are looking for on Twitter and click on the **Go!** button.
 
 **NB:** There are a few other common error messages that occur like *"timeout"* and *"set\_up\_twitter\_oauth"* did blah-blah-blah... these are usually due to poor network service and when you see them just try to run the app again by clicking on **"Go"**.
