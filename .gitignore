@@ -6,3 +6,4 @@
 sandbox
 packrat/lib*/
 packrat/src*/ 
+*.swp 
