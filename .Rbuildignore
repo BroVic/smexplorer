@@ -5,3 +5,6 @@
 ^README\.Rmd$
 ^README-.*\.png$
 ^error-badrequest\.PNG$
+^packrat/
+^\.Rprofile$
+^sanbox/
