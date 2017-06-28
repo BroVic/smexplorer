@@ -17,8 +17,8 @@ app <- shinyApp(
 
           width = 3,
 
-          tags$div(title = "Click here to submit authentication credentials and
-                   start a new session",
+          tags$div(title = "Click here to submit authentication credentials
+                   and start a new session",
                    strong(actionLink(inputId = "oauth",
                                      label = "Register new session"))),
 
@@ -43,8 +43,8 @@ app <- shinyApp(
             condition = "input.outputstyle == 'Density plot (week)'",
             dateInput("startDate", label = "From: ", value = Sys.Date() - 7,
                       min = "2016-06-14", max = Sys.Date()),
-            dateInput("endDate", "To: ", value = Sys.Date(), min = "2016-06-14",
-                      max = Sys.Date())
+            dateInput("endDate", "To: ", value = Sys.Date(),
+                      min = "2016-06-14", max = Sys.Date())
           ),
 
           conditionalPanel(
@@ -86,16 +86,17 @@ app <- shinyApp(
           tags$div(title = "Plots will be displayed here.",
                    plotOutput("twtDensity")),
 
-          div(style = "display:inline-block; vertical-align:top; padding-top:20px;
-              font-size: small;",
+          div(style = "display:inline-block; vertical-align:top;
+              padding-top:20px; font-size: small;",
               textOutput("twtnum", inline = TRUE)),
 
           div(
             style = "display:inline-block; vertical-align:top;",
-            selectInput("numLoaded",
-                        label = "",
-                        width = "70px",
-                        choices = c(25, 50, 100, 150, 200, 250, 300, 500, 1000))),
+            selectInput(
+              "numLoaded",
+              label = "",
+              width = "70px",
+              choices = c(25, 50, 100, 150, 200, 250, 300, 500, 1000))),
 
           div(style = "display:inline-block; vertical-align:top;
               padding-left: 10px; padding-top: 20px; margin-left: 30px",
@@ -140,20 +141,26 @@ app <- shinyApp(
       # options for the various plots
       if (input$outputstyle == "Density plot (week)") {
         checkWeek <- dataInput()
-        dW <- plotDensity(data = checkWeek, entry = input$searchTerm, daily = FALSE)
+        dW <- plotDensity(data = checkWeek,
+                          entry = input$searchTerm,
+                          daily = FALSE)
         dW
       }
       else if (input$outputstyle == "Density plot (day)") {
         checkday <- dplyr::filter(dataInput(),
                                   mday(created) == day(input$checkDate))
-        densDay <- plotDensity(checkday, entry = input$searchTerm, daily = TRUE)
+        densDay <- plotDensity(checkday,
+                               entry = input$searchTerm,
+                               daily = TRUE)
         densDay
       }
       else if (input$outputstyle == "Platforms") {
         temp_data <- dataInput()
         temp_data$statusSource <- substr(temp_data$statusSource,
-                                         regexpr('>', temp_data$statusSource) + 1,
-                                         regexpr('</a>', temp_data$statusSource) - 1)
+                                         regexpr('>',
+                                                 temp_data$statusSource) + 1,
+                                         regexpr('</a>',
+                                                 temp_data$statusSource) - 1)
         dotchart(sort(table(temp_data$statusSource)))
         mtext(textOnTweetsByPlatform)
       }
