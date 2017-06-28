@@ -47,6 +47,11 @@ Source: CRAN
 Version: 0.12.7
 Hash: f0ba7322cfb66f1b563462faa9c2b2ab
 
+Package: SnowballC
+Source: CRAN
+Version: 0.5.1
+Hash: 6f14c834eea7672f25b83d9ba35b85ca
+
 Package: XML
 Source: CRAN
 Version: 3.98-1.8
