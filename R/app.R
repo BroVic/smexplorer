@@ -43,7 +43,7 @@ app <- shinyApp(
             condition = "input.outputstyle == 'Density plot (week)'",
             dateInput("startDate", label = "From: ",
                       value = Sys.Date() - 7,
-                      max = Sys.Date()) - 1,
+                      max = Sys.Date() - 1),
             dateInput("endDate", "To: ",
                       value = Sys.Date(),
                       max = Sys.Date())
