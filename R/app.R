@@ -41,16 +41,20 @@ app <- shinyApp(
 
           conditionalPanel(
             condition = "input.outputstyle == 'Density plot (week)'",
-            dateInput("startDate", label = "From: ", value = Sys.Date() - 7,
-                      min = "2016-06-14", max = Sys.Date()),
-            dateInput("endDate", "To: ", value = Sys.Date(),
-                      min = "2016-06-14", max = Sys.Date())
+            dateInput("startDate", label = "From: ",
+                      value = Sys.Date() - 7,
+                      max = Sys.Date()) - 1,
+            dateInput("endDate", "To: ",
+                      value = Sys.Date(),
+                      max = Sys.Date())
           ),
 
           conditionalPanel(
             condition = "input.outputstyle == 'Density plot (day)'",
-            dateInput("checkDate", label = "Date: ", value = Sys.Date() - 1,
-                      min = Sys.Date() - 7, max = Sys.Date())
+            dateInput("checkDate",
+                      label = "Date: ",
+                      value = Sys.Date() - 1,
+                      max = Sys.Date())
           ),
 
           conditionalPanel(
