@@ -7,4 +7,3 @@ sandbox
 packrat/lib*/
 packrat/src*/ 
 *.swp 
-tests/
