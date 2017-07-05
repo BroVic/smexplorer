@@ -7,3 +7,4 @@ sandbox
 packrat/lib*/
 packrat/src*/ 
 *.swp 
+tests/testthat/app-ref.rds
