@@ -1,6 +1,6 @@
 library(shiny)
 
-context("Shiny app")
+context("Shiny app object")
 
 test_that("Object is a Shiny app object", {
           expect_identical(
