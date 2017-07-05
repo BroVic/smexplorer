@@ -20,8 +20,6 @@ colnames(df) <- c("text",
                   "longitude",
                   "latitude")
 
-df$text <- as.character(df$text)
-
 for (i in 1:20) {
   df$text[i] <- substr(crude[[i]]$content, 1, 140)
 }
