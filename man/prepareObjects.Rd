@@ -7,13 +7,14 @@
 prepareObjects(data)
 }
 \arguments{
-\item{data}{A dataframe}
+\item{data}{A dataframe generated from downloaded Twitter data}
 }
 \value{
-A list of 3 containing
-    - a split data frame (along the lines of factor \code{isRetweet})
-    - \code{main}: the data frame wherein \code{isRetweet == FALSE}
-    - polarity for text in \code{main}
+A list of length 3 containing:
+    - \code{main}: the data frame of original tweets
+    (\code{isRetweet == FALSE})
+    - \code{RT}: the data frame of retweets (\code{isRetweet == TRUE})
+    - a vector representing the polarity of \emph{text} in \code{main}
 }
 \description{
 \code{prepareObjects} Internal objects used in assessing polarity.

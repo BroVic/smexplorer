@@ -5,20 +5,23 @@ globalVariables(".")
 #'
 #' \code{prepareObjects} Internal objects used in assessing polarity.
 #'
-#' @param data A dataframe
-#' @return A list of 3 containing
-#'     - a split data frame (along the lines of factor \code{isRetweet})
-#'     - \code{main}: the data frame wherein \code{isRetweet == FALSE}
-#'     - polarity for text in \code{main}
+#' @param data A dataframe generated from downloaded Twitter data
+#' @return A list of length 3 containing:
+#'     - \code{main}: the data frame of original tweets
+#'     (\code{isRetweet == FALSE})
+#'     - \code{RT}: the data frame of retweets (\code{isRetweet == TRUE})
+#'     - a vector representing the polarity of \emph{text} in \code{main}
+#'
 #' @importFrom dplyr %>%
 prepareObjects <- function(data) {
   spl <- split(data, data$isRetweet)
   main <- spl[['FALSE']]
+  retwts <- spl[['TRUE']]
   pol <- lapply(main$text, function(txt) {
     gsub("(\\.|!|\\?)+\\s+|(\\++)", " ", txt) %>%
       gsub(" http[^[:blank:]]+", "", .) %>%
       qdap::polarity(.)
   })
-  value <- list(split = spl, original = main, polarity = pol)
+  value <- list(original = main, retweets = retwts, polarity = pol)
   value
 }
