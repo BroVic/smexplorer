@@ -1,4 +1,4 @@
-context("Colours used in the wordcloud")
+context("Internal functions")
 
 test_that(desc = "Colours for the wordcloud are correct", {
   expect_equal(color()[1], "#A6CEE3")
