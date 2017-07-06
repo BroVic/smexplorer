@@ -1,3 +1,4 @@
+library(tm)
 context("Internal functions")
 
 # Simulated data
