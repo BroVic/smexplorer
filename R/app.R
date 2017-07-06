@@ -88,7 +88,7 @@ app <- shinyApp(
         ),
 
         mainPanel(
-          tags$div(title = "Plots will be displayed here.",
+          div(title = "Plots will be displayed here.",
                    plotOutput("twtDensity")),
 
           div(style = "display:inline-block; vertical-align:top;
@@ -103,11 +103,7 @@ app <- shinyApp(
               width = "70px",
               choices = c(25, 50, 100, 150, 200, 250, 300, 500, 1000))),
 
-          div(style = "display:inline-block; vertical-align:top;
-              padding-left: 10px; padding-top: 20px; margin-left: 30px",
-              bookmarkButton()),
-
-          tableOutput("mostEmotive"),
+          div(tableOutput("mostEmotive")),
 
           width = 9
 
