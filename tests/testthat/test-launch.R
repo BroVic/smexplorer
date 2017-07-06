@@ -8,6 +8,3 @@ test_that("Caller provides correct input", {
   expect_error(explore(NA), err)
   expect_error(explore(NULL), err)
 })
-
-test_that("Function is working against previous settings",
-          expect_equal_to_reference(object = app, file = "app-ref.rds"))
