@@ -163,7 +163,7 @@ app <- shinyApp(
                                          regexpr('</a>',
                                                  temp_data$statusSource) - 1)
         dotchart(sort(table(temp_data$statusSource)))
-        mtext(textOnTweetsByPlatform)
+        mtext('Number of tweets posted by platform')
       }
       else if (input$outputstyle == "Emotions plot") {
         par(mfrow = c(1, 2))
@@ -235,9 +235,9 @@ app <- shinyApp(
     })
 
     output$twtnum <- renderText({
-
+      note <- "tweets loaded. Select a value to extend the download limit: "
       temp <- dataInput()
-      paste(nrow(temp), textOnLoadedTweets)
+      paste(nrow(temp), note)
 
     })
 
