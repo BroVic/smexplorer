@@ -1,4 +1,6 @@
 library(tm)
+library(SnowballC)
+
 context("Internal functions")
 
 # Simulated data
@@ -29,6 +31,12 @@ logi <- c(T, F)
 df['isRetweet'] <- rep(logi, nrow(df)/length(logi))
 retVal <- suppressWarnings(prepareObjects(df))
 
+og <- retVal$original
+og$ev <- sapply(retVal$polarity, function(x) x$all$polarity)
+dt <- split(og, sign(og$ev))
+pt <- createWordList(retVal$polarity)
+bow <- processBagofWords(dt, pt)
+
 # Tests
 test_that(desc = "Colours for the wordcloud are correct", {
   expect_equal(color()[1], "#A6CEE3")
@@ -48,13 +56,12 @@ test_that(desc = "Main objects are of the correct type and class", {
 })
 
 test_that("Word polarities are properly tabulated", {
-  tbl <- createWordList(retVal$polarity)
-  expect_equal(typeof(tbl), "list")
-  expect_equal(class(tbl), "list")
-  expect_equal(length(tbl), 2)
-  expect_equal(typeof(tbl[[1]]), "integer")
-  expect_equal(names(tbl[1]), "positiveWords")
-  expect_equal(names(tbl[2]), "negativeWords")
+  expect_equal(typeof(pt), "list")
+  expect_equal(class(pt), "list")
+  expect_equal(length(pt), 2)
+  expect_equal(typeof(pt[[1]]), "integer")
+  expect_equal(names(pt[1]), "positiveWords")
+  expect_equal(names(pt[2]), "negativeWords")
 })
 
 test_that("Corpus is generated", {
@@ -70,14 +77,8 @@ test_that("Density plot is properly rendered", {
 })
 
 test_that("Bag-of-words is built", {
-  og <- retVal$original
-  og$ev <- sapply(retVal$polarity, function(x) x$all$polarity)
-  dt <- split(og, sign(og$ev))
-  pt <- createWordList(retVal$polarity)
-  bow <- processBagofWords(dt, pt)
-
   expect_equal(class(bow), "character")
   expect_equal(length(bow), 3)
 })
 
-rm(df, logi, retVal)
+rm(df, logi, retVal, og, dt, pt, bow)
