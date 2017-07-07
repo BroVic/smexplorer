@@ -57,4 +57,27 @@ test_that("Word polarities are properly tabulated", {
   expect_equal(names(tbl[2]), "negativeWords")
 })
 
+test_that("Corpus is generated", {
+  txt <- crude[[1]]$content
+  cps <- make_corpus(txt)
+  expect_equal(class(cps), c("VCorpus", "Corpus"))
+})
+
+test_that("Density plot is properly rendered", {
+  expect_equal(class(plotDensity(df))[1], "gg")
+  expect_equal(class(plotDensity(df))[2], "ggplot")
+  expect_equal(length(plotDensity(df)), 9)
+})
+
+test_that("Bag-of-words is built", {
+  og <- retVal$original
+  og$ev <- sapply(retVal$polarity, function(x) x$all$polarity)
+  dt <- split(og, sign(og$ev))
+  pt <- createWordList(retVal$polarity)
+  bow <- processBagofWords(dt, pt)
+
+  expect_equal(class(bow), "character")
+  expect_equal(length(bow), 3)
+})
+
 rm(df, logi, retVal)
