@@ -1,6 +1,4 @@
 library(tm)
-library(SnowballC)
-
 context("Internal functions")
 
 # Simulated data
@@ -62,12 +60,6 @@ test_that("Word polarities are properly tabulated", {
   expect_equal(typeof(pt[[1]]), "integer")
   expect_equal(names(pt[1]), "positiveWords")
   expect_equal(names(pt[2]), "negativeWords")
-})
-
-test_that("Corpus is generated", {
-  txt <- crude[[1]]$content
-  cps <- make_corpus(txt)
-  expect_equal(class(cps), c("VCorpus", "Corpus"))
 })
 
 test_that("Density plot is properly rendered", {
