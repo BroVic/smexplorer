@@ -12,6 +12,8 @@ plotDensity(data = x, entry = character(), daily = FALSE, input = NULL)
 \item{entry}{The character input value i.e. the search term}
 
 \item{daily}{logical - TRUE if plot represents daily data}
+
+\item{input}{A character vector of date input for daily data}
 }
 \description{
 \code{plotDensity} Generates a density plot.

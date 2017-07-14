@@ -8,6 +8,7 @@ globalVariables(c("x", "isRetweet"))
 #' @param data The datafrane to be plotted from
 #' @param entry The character input value i.e. the search term
 #' @param daily logical - TRUE if plot represents daily data
+#' @param input A character vector of date input for daily data
 #' @import ggplot2
 plotDensity <- function(data = x, entry = character(),
                         daily = FALSE, input = NULL)
