@@ -152,7 +152,8 @@ app <- shinyApp(
                                   mday(created) == day(input$checkDate))
         densDay <- plotDensity(checkday,
                                entry = input$searchTerm,
-                               daily = TRUE)
+                               daily = TRUE,
+                               input = input$checkDate)
         densDay
       }
       else if (input$outputstyle == "Platforms") {
