@@ -15,7 +15,7 @@ plotDensity <- function(data = x, entry = character(),
   if (daily) {
     title <- paste0("Distribution of tweets mentioning \"",
                     entry, "\" (Daily Results)")
-    xlabel <- paste("Time on", input)
+    xlabel <- paste("Time on", format(as.POSIXct(input), "%a %d %b %Y"))
   }
   else {
     title <- paste0("Distribution of tweets mentioning \"", entry, "\"")
