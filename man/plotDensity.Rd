@@ -4,7 +4,7 @@
 \alias{plotDensity}
 \title{Kernel density plots based on ggplot2 package.}
 \usage{
-plotDensity(data = x, entry = character(), daily = FALSE)
+plotDensity(data = x, entry = character(), daily = FALSE, input = NULL)
 }
 \arguments{
 \item{data}{The datafrane to be plotted from}
