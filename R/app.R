@@ -101,7 +101,7 @@ app <- shinyApp(
               "numLoaded",
               label = "",
               width = "70px",
-              choices = c(25, 50, 100, 150, 200, 250, 300, 500, 1000))),
+              choices = c(50, 100, 200, 500, 1000, 2000, 5000))),
 
           div(tableOutput("mostEmotive")),
 
