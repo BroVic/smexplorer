@@ -5,16 +5,18 @@ Authors@R: person("Victor", "Ordu", email = "victorordu@outlook.com",
     role = c("aut", "cre"))
 Description: Contains functions and related objects to enable the exploratory
     analysis of social media data.
+SystemRequirements: Java Runtime Environment (>= 1.8.0)
 Depends:
     R (>= 3.3.3),
-    shiny (>= 1.0.3)
+    shiny (>= 1.0.3),
 Imports:
+    RColorBrewer (>= 1.1-2),
     dplyr (>= 0.7.1),
     ggplot2 (>= 2.2.1),
     lubridate (>= 1.6.0),
     network (>= 1.13.0),
     qdap (>= 2.2.5),
-    RColorBrewer (>= 1.1-2),
+    rJava (>= 0.9.8),
     shinythemes (>= 1.1.1),
     sna (>= 2.4),
     stringr (>= 1.2.0),
