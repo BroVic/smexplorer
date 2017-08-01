@@ -83,7 +83,7 @@ app <- shinyApp(
 
           hr(),
 
-          em(a(href = "https://github.com/NESREA/NESREA_social/issues/new",
+          em(a(href = "https://github.com/NESREA/SMExplorer/issues/new",
                "Feedback/Bug Reports"))
         ),
 
