@@ -1,5 +1,5 @@
 # Let's R CMD check run smoothly
-globalVariables(c("x", "isRetweet"))
+globalVariables(c("x", "isRetweet", "created"))
 
 #' Kernel density plots based on ggplot2 package.
 #'

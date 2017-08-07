@@ -3,7 +3,6 @@
 #' @return A Shiny application object
 #' @import lubridate
 #' @import shiny
-#' @import twitteR
 #' @importFrom network %v%
 app <- shinyApp(
 
@@ -120,12 +119,12 @@ app <- shinyApp(
       }
       input$goButton
       tweets <- isolate(
-        searchTwitter(as.character(input$searchTerm),
-                      n = input$numLoaded,
-                      since = as.character(input$startDate),
-                      until = as.character(input$endDate))
+        twitteR::searchTwitter(as.character(input$searchTerm),
+                               n = input$numLoaded,
+                               since = as.character(input$startDate),
+                               until = as.character(input$endDate))
       )
-      df <- twListToDF(tweets)
+      df <- twitteR::twListToDF(tweets)
       df$text <- stringr::str_replace_all(df$text, "[^[:graph:]]", " ")
       df
     })
