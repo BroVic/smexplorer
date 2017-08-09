@@ -114,8 +114,10 @@ app <- shinyApp(
 
     dataInput <- reactive({
       if (input$oauth) {
-        setup_twitter_oauth(consumer_key,consumer_secret,
-                            access_token, access_secret)
+        twitteR::setup_twitter_oauth(consumer_key,
+                                     consumer_secret,
+                                     access_token,
+                                     access_secret)
       }
       input$goButton
       tweets <- isolate(
