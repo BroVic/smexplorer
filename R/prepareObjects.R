@@ -17,6 +17,7 @@ prepareObjects <- function(data) {
   spl <- split(data, data$isRetweet)
   main <- spl[['FALSE']]
   retwts <- spl[['TRUE']]
+  `[[.qdap_hash` <- `[[.data.frame`
   pol <- lapply(main$text, function(txt) {
     gsub("(\\.|!|\\?)+\\s+|(\\++)", " ", txt) %>%
       gsub(" http[^[:blank:]]+", "", .) %>%
