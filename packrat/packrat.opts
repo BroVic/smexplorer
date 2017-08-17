@@ -5,8 +5,10 @@ vcs.ignore.lib: TRUE
 vcs.ignore.src: FALSE
 external.packages:
     devtools
-    roxygen2
+    igraph
+    jsonlite
     XML
+    roxygen2
 local.repos: 
 load.external.packages.on.startup: TRUE
 ignored.packages: 
