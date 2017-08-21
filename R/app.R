@@ -5,7 +5,6 @@
 #' @import shiny
 #' @importFrom network %v%
 app <- shinyApp(
-
   ui = fluidPage(
     theme = shinythemes::shinytheme("superhero"),
 
@@ -15,99 +14,101 @@ app <- shinyApp(
     sidebarLayout(
       sidebarPanel(
 
-          width = 3,
+        width = 3,
 
-          tags$div(title = "Click here to submit authentication credentials
-                   and start a new session",
-                   strong(actionLink(inputId = "oauth",
-                                     label = "Register new session"))),
+        tags$div(title = "Click here to submit authentication credentials
+                 and start a new session",
+                 strong(actionLink(inputId = "oauth",
+                                   label = "Register new session"))),
 
-          hr(),
+        hr(),
 
 
-          tags$div(title = "Type in what you're searching for here",
-                   textInput("searchTerm", label = "Search", value = NULL,
-                             placeholder = "word or hashtag")),
+        tags$div(title = "Type in what you're searching for here",
+                 textInput("searchTerm", label = "Search", value = NULL,
+                           placeholder = "word or hashtag")),
 
-          tags$div(title = "Choose the type of output you want to view",
-                   selectInput("outputstyle",
-                               label = "Select output type",
-                               choices = c("Density plot (week)",
-                                           "Density plot (day)",
-                                           "Platforms",
-                                           "Emotions plot",
-                                           "Wordcloud",
-                                           "Network"))),
+        tags$div(title = "Choose the type of output you want to view",
+                 selectInput("outputstyle",
+                             label = "Select output type",
+                             choices = c("Density plot (week)",
+                                         "Density plot (day)",
+                                         "Platforms",
+                                         "Emotions plot",
+                                         "Wordcloud",
+                                         "Network"))),
 
-          conditionalPanel(
-            condition = "input.outputstyle == 'Density plot (week)'",
-            dateInput("startDate", label = "From: ",
-                      value = Sys.Date() - 7,
-                      max = Sys.Date() - 1),
-            dateInput("endDate", "To: ",
-                      value = Sys.Date(),
-                      max = Sys.Date())
-          ),
-
-          conditionalPanel(
-            condition = "input.outputstyle == 'Density plot (day)'",
-            dateInput("checkDate",
-                      label = "Date: ",
-                      value = Sys.Date() - 1,
-                      max = Sys.Date())
-          ),
-
-          conditionalPanel(
-            condition = "input.outputstyle == 'Platforms'"
-          ),
-
-          conditionalPanel(
-            condition = "input.outputstyle == 'Emotions plot'",
-            checkboxInput("emotiveExtremes",
-                          label = "View emotive extremes",
-                          value = FALSE)
-          ),
-
-          conditionalPanel(
-            condition = "input.outputstyle == 'Wordcloud'"
-          ),
-
-          conditionalPanel(
-            condition = "input.outputstyle == 'Network'"
-          ),
-
-          div(style = "border: 1px dotted black; background: dark-grey;
-              width: 52px",
-              actionButton("goButton", label = "Go!")),
-
-          hr(),
-
-          em(a(href = "https://github.com/NESREA/SMExplorer/issues/new",
-               "Report an issue"))
+        conditionalPanel(
+          condition = "input.outputstyle == 'Density plot (week)'",
+          dateInput("startDate",
+                    label = "From: ",
+                    value = Sys.Date() - 7,
+                    max = Sys.Date() - 1),
+          dateInput("endDate",
+                    label = "To: ",
+                    value = Sys.Date(),
+                    max = Sys.Date())
         ),
 
-        mainPanel(
-          div(title = "Plots will be displayed here.",
-                   plotOutput("twtDensity")),
+        conditionalPanel(
+          condition = "input.outputstyle == 'Density plot (day)'",
+          dateInput("checkDate",
+                    label = "Date: ",
+                    value = Sys.Date() - 1,
+                    max = Sys.Date())
+        ),
 
-          div(style = "display:inline-block; vertical-align:top;
-              padding-top:20px; font-size: small;",
-              textOutput("twtnum", inline = TRUE)),
+        conditionalPanel(
+          condition = "input.outputstyle == 'Platforms'"
+        ),
 
-          div(
-            style = "display:inline-block; vertical-align:top;",
-            selectInput(
-              "numLoaded",
-              label = "",
-              width = "70px",
-              choices = c(50, 100, 200, 500, 1000, 2000, 5000))),
+        conditionalPanel(
+          condition = "input.outputstyle == 'Emotions plot'",
+          checkboxInput("emotiveExtremes",
+                        label = "View emotive extremes",
+                        value = FALSE)
+        ),
 
-          div(tableOutput("mostEmotive")),
+        conditionalPanel(
+          condition = "input.outputstyle == 'Wordcloud'"
+        ),
 
-          width = 9
+        conditionalPanel(
+          condition = "input.outputstyle == 'Network'"
+        ),
 
-        )
+        div(style = "border: 1px dotted black; background: dark-grey;
+            width: 52px",
+            actionButton("goButton", label = "Go!")),
+
+        hr(),
+
+        em(a(href = "https://github.com/NESREA/SMExplorer/issues/new",
+             "Report an issue"))
+      ),
+
+      mainPanel(
+        div(title = "Plots will be displayed here.",
+            plotOutput("twtDensity")),
+
+        div(style = "display:inline-block; vertical-align:top;
+            padding-top:20px; font-size: small;",
+            textOutput("twtnum", inline = TRUE)),
+
+        div(
+          style = "display:inline-block; vertical-align:top;",
+          selectInput(
+            "numLoaded",
+            label = "",
+            width = "70px",
+            choices = c(50, 100, 200, 500, 1000, 2000, 5000))),
+
+        div(tableOutput("mostEmotive")),
+
+        width = 9
+
       )
+    )
   ),
 
   server = function(input, output) {
@@ -194,7 +195,7 @@ app <- shinyApp(
       else if (input$outputstyle == "Network") {
         col3 <- color()
         RT <- dplyr::mutate(RT,
-                     sender = substr(text, 5, regexpr(':', text) - 1))
+                            sender = substr(text, 5, regexpr(':', text) - 1))
         edglst <- as.data.frame(cbind(sender = tolower(RT$sender),
                                       receiver = tolower(RT$screenName)))
         edglst <- dplyr::count(edglst, sender, receiver)
@@ -244,4 +245,5 @@ app <- shinyApp(
     })
 
   }
+
 )
