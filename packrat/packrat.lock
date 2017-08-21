@@ -1,6 +1,6 @@
 PackratFormat: 1.4
 PackratVersion: 0.4.8.1
-RVersion: 3.3.3
+RVersion: 3.4.1
 Repos: CRAN=https://cran.rstudio.com/,
     CRANextra=http://www.stats.ox.ac.uk/pub/RWin
 
@@ -45,6 +45,7 @@ Requires: bitops
 Package: Rcpp
 Source: CRAN
 Version: 0.12.11
+Hash: 2ee22f3b5e75dec80b1d8eca61cd96d8
 
 Package: SnowballC
 Source: CRAN
@@ -90,8 +91,8 @@ Hash: 67d0775189fd0041d95abca618c5c07e
 
 Package: chron
 Source: CRAN
-Version: 2.3-47
-Hash: d25d96d908cd21080f24c89eed4c80a0
+Version: 2.3-50
+Hash: 86ef5f32dd2ef3c4076e52e7c89740b3
 
 Package: colorspace
 Source: CRAN
@@ -110,9 +111,8 @@ Hash: e3d6a6a421b8418ae333894b6a16829f
 
 Package: data.table
 Source: CRAN
-Version: 1.9.6
-Hash: f92ef1f73afa43bf6fd69a22f3794abd
-Requires: chron
+Version: 1.10.4
+Hash: 2c7c47ccb40d01c7b214c8eff818108d
 
 Package: dichromat
 Source: CRAN
@@ -207,14 +207,14 @@ Requires: R6, curl, jsonlite, mime, openssl
 
 Package: igraph
 Source: CRAN
-Version: 1.0.1
-Hash: 26ac36402e881905359daabfd9ba4057
-Requires: NMF, irlba, magrittr
+Version: 1.1.2
+Hash: 07d33f151f94269a4573d354104e81aa
+Requires: irlba, magrittr, pkgconfig
 
 Package: irlba
 Source: CRAN
 Version: 2.1.2
-Hash: 23fb0f166f3a2bdc2ac7b014b94b57a7
+Hash: 1600a8e3c31405b352c652429c46ecd2
 
 Package: iterators
 Source: CRAN
@@ -338,10 +338,14 @@ Hash: f991a2be0cd89104369011fdb17b0caf
 Requires: stringi
 
 Package: qdapTools
-Source: CRAN
-Version: 1.3.1
-Hash: 876dfcffb0ea4eb681638f6875a5fda7
+Source: github
+Version: 1.3.4
+Hash: 1a09a7c9dc02209e8e22375d16b5e494
 Requires: RCurl, XML, chron, data.table
+GithubRepo: qdapTools
+GithubUsername: trinker
+GithubRef: master
+GithubSha1: 34cc3f26295b968550553fd26d74bfd970457796
 
 Package: rJava
 Source: CRAN
