@@ -5,6 +5,7 @@ vcs.ignore.lib: TRUE
 vcs.ignore.src: FALSE
 external.packages:
     devtools
+    rmarkdown
     roxygen2
     XML
 local.repos: 
