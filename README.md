@@ -3,7 +3,7 @@
 SMExplorer
 ==========
 
-*An R package for the exploratory analysis of social media metrics*
+*An R package for the exploratory analysis of social media metrics*  
 [![Travis-CI Build Status](https://travis-ci.org/BroVic/SMExplorer.svg?branch=master)](https://travis-ci.org/BroVic/SMExplorer)
 
 > SMExplorer is currently in beta
@@ -57,14 +57,14 @@ library(SMExplorer)
 explore()
 ```
 
-#### 3.1 Login
+#### 4.1 Login
 
 On first use, you ***will*** need to supply the in-built OAuth credentials. Follow these steps:
 + Click on *"Register new session"*
 + Go back to R and enter "1" (i.e. for "*YES*")
 + Return to the application window to continue use.
 
-#### 3.2 Make an entry
+#### 4.2 Make an entry
 
 You will to see a second error message saying *"Bad HTTP"*. This means you have not supplied a search term (see figure below).
 
