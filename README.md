@@ -48,8 +48,8 @@ install_github("NESREA/SMExplorer")
 
 Java Runtime Environment (version 1.8 or greater) is required. If not sure whether you have it, run `java -version` in the shell. If needed, download and install from <http://www.java.com/download>.
 
-### 4. Run the application
-
+### 4. Run the application  
+#### 4.1 Launch *SMExplorer*
 The app currently uses only one function, `explore()`. To lauch in the default browser, run the following lines:
 
 ``` r
@@ -57,14 +57,14 @@ library(SMExplorer)
 explore()
 ```
 
-#### 4.1 Login
+#### 4.2 Login
 
 On first use, you ***will*** need to supply the in-built OAuth credentials. Follow these steps:
 + Click on *"Register new session"*
 + Go back to R and enter "1" (i.e. for "*YES*")
 + Return to the application window to continue use.
 
-#### 4.2 Make an entry
+#### 4.3 Make an entry
 
 You will to see a second error message saying *"Bad HTTP"*. This means you have not supplied a search term (see figure below).
 
