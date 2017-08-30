@@ -13,4 +13,3 @@ consumer_key
 OAuth credential required to download data from the Twitter API
 }
 \keyword{datasets}
-

@@ -18,4 +18,3 @@ plotDensity(data = x, entry = character(), daily = FALSE, input = NULL)
 \description{
 \code{plotDensity} Generates a density plot.
 }
-

@@ -19,4 +19,3 @@ A list of length 3 containing:
 \description{
 \code{prepareObjects} Internal objects used in assessing polarity.
 }
-

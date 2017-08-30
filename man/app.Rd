@@ -15,4 +15,3 @@ A Shiny application object
 SMExplorer Shiny application object
 }
 \keyword{datasets}
-
