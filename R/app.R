@@ -25,8 +25,8 @@ app <- shinyApp(
 
 
         tags$div(title = "Type in what you're searching for here",
-                 textInput("searchTerm", label = "Search", value = NULL,
-                           placeholder = "word or hashtag")),
+                 textInput("searchTerm", label = "Search", placeholder = " ")
+                 ),
 
         tags$div(title = "Choose the type of output you want to view",
                  selectInput("outputstyle",
@@ -36,27 +36,32 @@ app <- shinyApp(
                                          "Platforms",
                                          "Emotions plot",
                                          "Wordcloud",
-                                         "Network"))),
+                                         "Network"))
+                 ),
 
-        conditionalPanel(
-          condition = "input.outputstyle == 'Density plot (week)'",
-          dateInput("startDate",
-                    label = "From: ",
-                    value = Sys.Date() - 7,
-                    max = Sys.Date() - 1),
-          dateInput("endDate",
-                    label = "To: ",
-                    value = Sys.Date(),
-                    max = Sys.Date())
-        ),
+        tags$div(title = "Request data for a given time period",
+                 conditionalPanel(
+                   condition = "input.outputstyle == 'Density plot (week)'",
+                   dateRangeInput("daterange",
+                                  label = "Date Range: ",
+                                  start = Sys.Date() - 8,
+                                  end = Sys.Date() - 1,
+                                  max = Sys.Date(),
+                                  format = "d M",
+                                  separator = "--")
+                   )
+                 ),
 
-        conditionalPanel(
-          condition = "input.outputstyle == 'Density plot (day)'",
-          dateInput("checkDate",
-                    label = "Date: ",
-                    value = Sys.Date() - 1,
-                    max = Sys.Date())
-        ),
+        tags$div(title = "Request data for a particular day",
+                 conditionalPanel(
+                   condition = "input.outputstyle == 'Density plot (day)'",
+                   dateInput("singledate",
+                             label = "Date: ",
+                             value = Sys.Date() - 1,
+                             max = Sys.Date(),
+                             format = "D dd M yyyy")
+                   )
+                 ),
 
         conditionalPanel(
           condition = "input.outputstyle == 'Platforms'"
@@ -124,8 +129,8 @@ app <- shinyApp(
       tweets <- isolate(
         twitteR::searchTwitter(as.character(input$searchTerm),
                                n = input$numLoaded,
-                               since = as.character(input$startDate),
-                               until = as.character(input$endDate))
+                               since = as.character(input$daterange[1]),
+                               until = as.character(input$daterange[2]))
       )
       df <- twitteR::twListToDF(tweets)
       df$text <- stringr::str_replace_all(df$text, "[^[:graph:]]", " ")
@@ -143,19 +148,19 @@ app <- shinyApp(
 
       # options for the various plots
       if (input$outputstyle == "Density plot (week)") {
-        checkWeek <- dataInput()
-        dW <- plotDensity(data = checkWeek,
+        checkPeriod <- dataInput()
+        dW <- plotDensity(data = checkPeriod,
                           entry = input$searchTerm,
                           daily = FALSE)
         dW
       }
       else if (input$outputstyle == "Density plot (day)") {
         checkday <- dplyr::filter(dataInput(),
-                                  mday(created) == day(input$checkDate))
+                                  mday(created) == day(input$singledate))
         densDay <- plotDensity(checkday,
                                entry = input$searchTerm,
                                daily = TRUE,
-                               input = input$checkDate)
+                               input = input$singledate)
         densDay
       }
       else if (input$outputstyle == "Platforms") {
