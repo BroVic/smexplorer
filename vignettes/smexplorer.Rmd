@@ -1,9 +1,9 @@
 ---
-title: "Using SMExplorer"
+title: "using-smexplorer"
 date: "`r Sys.Date()`"
 output: rmarkdown::html_vignette
 vignette: >
-  %\VignetteIndexEntry{smexplorer}
+  %\VignetteIndexEntry{using-smexplorer}
   %\VignetteEngine{knitr::rmarkdown}
   %\VignetteEncoding{UTF-8}
 ---
