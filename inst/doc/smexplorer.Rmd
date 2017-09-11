@@ -1,0 +1,45 @@
+---
+title: "using-smexplorer"
+date: "`r Sys.Date()`"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{using-smexplorer}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+SMExplorer is a tool for the exploratory analysis of Twitter data.
+
+Its main purpose is to aid the user in having an overview of key social media metrics that will support personal and corporate social media marketing decision-making.
+
+## Instructions for use
+### Install and load the package
+See the `README` for installation instructions.
+
+The package itself is very simple to use; this version contains only one function, `explore()`, which launches a _Shiny_ application for interactive analyses. To run, type 
+```{r, eval=FALSE}
+library(SMExplorer)
+explore()
+```
+
+### Login
+On first use, you __*will*__ need to supply the in-built _OAuth_ credentials. To do so, follow these steps:  
+
+- Click on *"Register new session"*.  
+- Enter "1" (i.e. for "_YES_") at the prompt in the R console.  
+- Return to the app to continue use.   
+
+### Make an entry
+To begin your analysis on a word or hashtag, supplying a search termin  the *Search* box and click on **Go!**. 
+
+### Select an output type
+`SMExplorer` currently supports the following kinds of output:
+
+- Kerning density plots of tweets
+- Dot graphs of platforms used to publish tweets
+- Dot graphs of emotional valence
+- Word cloud of keywords, disaggregated by sign of emotional valence
+- Network graph (directed) of tweeters and retweeters
+
+### Controls for download
+There is a widget to control the number of tweets one may download at a given time. Whenever the number of tweets is the same as the number downloaded, it is likely there are more available. To increase the size of the dataset, select a larger number from the list and click again on *Go!*.
