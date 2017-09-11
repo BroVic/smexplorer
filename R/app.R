@@ -1,5 +1,5 @@
 #' SMExplorer Shiny application object
-#'
+
 #' @return A Shiny application object
 #' @import lubridate
 #' @import shiny
