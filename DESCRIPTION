@@ -32,5 +32,8 @@ LazyData: true
 RoxygenNote: 6.0.1
 Suggests:
     bindr,
-    testthat
+    testthat,
+    knitr,
+    rmarkdown
 BugReports: http://github.com/NESREA/SMExplorer/issues
+VignetteBuilder: knitr
