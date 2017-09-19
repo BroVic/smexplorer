@@ -1,8 +1,8 @@
-#' Compilation of Lists on either Side of Emotive Spectrum
-#'
-#' \code{createWordList} Generates list of positive and negative words.
-#'
-#' @param x An atomic vector of polarities
+# Compilation of Lists on either Side of Emotive Spectrum
+#
+# \code{createWordList} Generates list of positive and negative words.
+#
+# @param x An atomic vector of polarities
 #' @importFrom dplyr %>%
 createWordList <- function(x) {
   pwt <- sapply(x, function(p) {

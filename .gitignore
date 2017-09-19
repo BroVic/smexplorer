@@ -5,7 +5,7 @@
 .httr-oauth
 sandbox
 packrat/lib*/
-packrat/src*/ 
-*.swp 
+packrat/src*/
+*.swp
 tests/testthat/app-ref.rds
 README.Rmd
