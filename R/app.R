@@ -19,7 +19,7 @@ app <- shinyApp(
         tags$div(title = "Click here to submit authentication credentials
                  and start a new session",
                  strong(actionLink(inputId = "oauth",
-                                   label = "Register new session"))),
+                                   label = "Register a new session"))),
 
         hr(),
 
@@ -27,6 +27,13 @@ app <- shinyApp(
         tags$div(title = "Type in what you're searching for here",
                  textInput("searchTerm", label = "Search", placeholder = " ")
                  ),
+
+        div(style = "border: 1px dotted black;
+                     background: light-grey;
+                     width: 62px",
+            actionButton("goButton", label = "Go!")),
+
+        hr(),
 
         tags$div(title = "Choose the type of output you want to view",
                  selectInput("outputstyle",
@@ -43,13 +50,12 @@ app <- shinyApp(
                  conditionalPanel(
                    condition = "input.outputstyle == 'Density plot (week)'",
                    dateRangeInput("daterange",
-                                  label = "Date Range: ",
+                                  label = "Date Range",
                                   start = Sys.Date() - 8,
                                   end = Sys.Date() - 1,
                                   max = Sys.Date(),
                                   format = "d M",
-                                  separator = "--")
-                   )
+                                  separator = "to"))
                  ),
 
         tags$div(title = "Request data for a particular day",
@@ -59,32 +65,24 @@ app <- shinyApp(
                              label = "Date: ",
                              value = Sys.Date() - 1,
                              max = Sys.Date(),
-                             format = "D dd M yyyy")
-                   )
+                             format = "D dd M yyyy"))
                  ),
 
-        conditionalPanel(
-          condition = "input.outputstyle == 'Platforms'"
-        ),
+        conditionalPanel(condition = "input.outputstyle == 'Platforms'"),
 
-        conditionalPanel(
-          condition = "input.outputstyle == 'Emotions plot'",
-          checkboxInput("emotiveExtremes",
-                        label = "View emotive extremes",
-                        value = FALSE)
-        ),
+        conditionalPanel(condition = "input.outputstyle == 'Emotions plot'",
+                         checkboxInput("emotiveExtremes",
+                                       label = "View emotive extremes",
+                                       value = FALSE)),
 
-        conditionalPanel(
-          condition = "input.outputstyle == 'Wordcloud'"
-        ),
+        conditionalPanel(condition = "input.outputstyle == 'Wordcloud'"),
 
-        conditionalPanel(
-          condition = "input.outputstyle == 'Network'"
-        ),
+        conditionalPanel(condition = "input.outputstyle == 'Network'"),
 
-        div(style = "border: 1px dotted black; background: dark-grey;
-            width: 52px",
-            actionButton("goButton", label = "Go!")),
+        selectInput("numLoaded",
+                    label = "Download limit",
+                    width = "72px",
+                    choices = c(50, 100, 200, 500, 1000, 2000, 5000)),
 
         hr(),
 
@@ -100,13 +98,6 @@ app <- shinyApp(
             padding-top:20px; font-size: small;",
             textOutput("twtnum", inline = TRUE)),
 
-        div(
-          style = "display:inline-block; vertical-align:top;",
-          selectInput(
-            "numLoaded",
-            label = "",
-            width = "70px",
-            choices = c(50, 100, 200, 500, 1000, 2000, 5000))),
 
         div(tableOutput("mostEmotive")),
 
@@ -243,7 +234,7 @@ app <- shinyApp(
     })
 
     output$twtnum <- renderText({
-      note <- "tweets loaded. Select a value to extend the download limit: "
+      note <- "tweets loaded."
       temp <- dataInput()
       paste(nrow(temp), note)
 
