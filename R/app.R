@@ -28,7 +28,7 @@ app <- shinyApp(
                  textInput("searchTerm", label = "Search", placeholder = " ")
                  ),
 
-        div(style = "background: dark-grey;"
+        div(style = "background: dark-grey",
             actionButton("goButton", label = "Go!")),
 
         hr(),
