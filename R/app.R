@@ -51,9 +51,9 @@ app <- shinyApp(
                    condition = "input.outputstyle == 'Density plot (week)'",
                    dateRangeInput("daterange",
                                   label = "Date Range",
-                                  start = Sys.Date() - 8,
-                                  end = Sys.Date() - 1,
-                                  max = Sys.Date(),
+                                  start = as.POSIXct(Sys.Date() - 8),
+                                  end = as.POSIXct(Sys.Date() - 1),
+                                  max = as.POSIXct(Sys.Date()),
                                   format = "d M",
                                   separator = "to"))
                  ),
@@ -63,8 +63,8 @@ app <- shinyApp(
                    condition = "input.outputstyle == 'Density plot (day)'",
                    dateInput("singledate",
                              label = "Date: ",
-                             value = Sys.Date() - 1,
-                             max = Sys.Date(),
+                             value = as.POSIXct(Sys.Date()) - 1,
+                             max = as.POSIXct(Sys.Date()),
                              format = "D dd M yyyy"))
                  ),
 
