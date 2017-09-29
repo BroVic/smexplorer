@@ -19,6 +19,13 @@ Source: CRAN
 Version: 0.1-9
 Hash: bd55f87ab2c40bdb7310eb7d56d395f4
 
+Package: NMF
+Source: CRAN
+Version: 0.20.6
+Hash: 632aad207ab2e551b33990c9f09ab8af
+Requires: RColorBrewer, colorspace, digest, doParallel, foreach,
+    ggplot2, gridBase, pkgmaker, registry, reshape2, rngtools, stringr
+
 Package: R6
 Source: CRAN
 Version: 2.2.0
@@ -55,6 +62,16 @@ Source: CRAN
 Version: 0.1
 Hash: 0afb92b59b02593c70ff8046700ba9d3
 
+Package: backports
+Source: CRAN
+Version: 1.1.0
+Hash: 3f754426ca2b7dbbf63951fe5075373b
+
+Package: base64enc
+Source: CRAN
+Version: 0.1-3
+Hash: c590d29e555926af053055e23ee79efb
+
 Package: bindr
 Source: CRAN
 Version: 0.1
@@ -81,6 +98,12 @@ Package: bitops
 Source: CRAN
 Version: 1.0-6
 Hash: 67d0775189fd0041d95abca618c5c07e
+
+Package: caTools
+Source: CRAN
+Version: 1.17.1
+Hash: 97cb6f6293cd18d17df77a6383cc6763
+Requires: bitops
 
 Package: chron
 Source: CRAN
@@ -117,12 +140,30 @@ Source: CRAN
 Version: 0.6.12
 Hash: e53fb8c58673df868183697e39a6a4d6
 
+Package: doParallel
+Source: CRAN
+Version: 1.0.10
+Hash: df91a7abfa938c06ad87b9a2b9269adb
+Requires: foreach, iterators
+
 Package: dplyr
 Source: CRAN
 Version: 0.7.1
 Hash: 63db35467709ba05408fdce552b90304
-Requires: BH, R6, Rcpp, assertthat, glue, magrittr, pkgconfig, plogr,
-    rlang, bindrcpp, tibble
+Requires: BH, R6, Rcpp, assertthat, bindrcpp, glue, magrittr,
+    pkgconfig, plogr, rlang, tibble
+
+Package: evaluate
+Source: CRAN
+Version: 0.10.1
+Hash: 54d95f4ec6d0300100413ed0127d89ae
+Requires: stringr
+
+Package: foreach
+Source: CRAN
+Version: 1.4.3
+Hash: cd53ef4cf29dc59ce3f8c5c1af735fd1
+Requires: iterators
 
 Package: gdata
 Source: CRAN
@@ -134,13 +175,13 @@ Package: gender
 Source: CRAN
 Version: 0.5.1
 Hash: ca944d7f6b00af2f5fbbfa0399420139
-Requires: jsonlite, httr, dplyr
+Requires: dplyr, httr, jsonlite
 
 Package: ggplot2
 Source: CRAN
 Version: 2.2.1
 Hash: 46e5cb78836848aa44655e577433f54b
-Requires: digest, gtable, lazyeval, plyr, tibble, scales, reshape2
+Requires: digest, gtable, lazyeval, plyr, reshape2, scales, tibble
 
 Package: glue
 Source: CRAN
@@ -167,6 +208,11 @@ Package: gtools
 Source: CRAN
 Version: 3.5.0
 Hash: 471b2e2452dfb30fdc1dd6f1b567925a
+
+Package: highr
+Source: CRAN
+Version: 0.6
+Hash: aa3d5b7912b5fed4b546ed5cd2a1760b
 
 Package: htmltools
 Source: CRAN
@@ -207,6 +253,12 @@ Source: CRAN
 Version: 1.4
 Hash: 24cc0ffeb1771d710173d9803a131870
 
+Package: knitr
+Source: CRAN
+Version: 1.17
+Hash: f6b2bf543ee3e25f5b92bb46f9958c5f
+Requires: digest, stringr, evaluate, highr, markdown, yaml
+
 Package: labeling
 Source: CRAN
 Version: 0.3
@@ -228,6 +280,12 @@ Source: CRAN
 Version: 1.5
 Hash: bdc4d48c3135e8f3b399536ddf160df4
 
+Package: markdown
+Source: CRAN
+Version: 0.8
+Hash: 045d7c594d503b41f1c28946d076c8aa
+Requires: mime
+
 Package: mime
 Source: CRAN
 Version: 0.5
@@ -248,7 +306,7 @@ Package: openNLP
 Source: CRAN
 Version: 0.2-6
 Hash: 26bd7d4fe539ee035a6450a423d53e0b
-Requires: NLP, rJava, openNLPdata
+Requires: NLP, openNLPdata, rJava
 
 Package: openNLPdata
 Source: CRAN
@@ -271,6 +329,12 @@ Source: CRAN
 Version: 2.0.1
 Hash: 0dda4a2654a22b36a715c2b0b6fbacac
 
+Package: pkgmaker
+Source: CRAN
+Version: 0.22
+Hash: 2e5fc2a6b7eaeb1e1d397a8dc5f54480
+Requires: digest, registry, stringr, xtable
+
 Package: plogr
 Source: CRAN
 Version: 0.1-1
@@ -292,20 +356,14 @@ Source: CRAN
 Version: 1.0.0
 Hash: 77da8f1df873a4b91e5c4a68fe2fb1b6
 
-Package: purrr
-Source: CRAN
-Version: 0.2.3
-Hash: d741f262ed1b74543e33c5426a497996
-Requires: magrittr, rlang, tibble
-
 Package: qdap
 Source: CRAN
 Version: 2.2.5
 Hash: df3fbe13493042eb140715d84936f533
-Requires: NLP, RColorBrewer, XML, chron, plotrix, qdapDictionaries,
-    reports, stringdist, RCurl, gridExtra, gdata, igraph, venneuler,
-    tm, wordcloud, qdapRegex, qdapTools, scales, openNLP, xlsx, dplyr,
-    reshape2, gender, tidyr, ggplot2
+Requires: NLP, RColorBrewer, RCurl, XML, chron, dplyr, gdata, gender,
+    ggplot2, gridExtra, igraph, openNLP, plotrix, qdapDictionaries,
+    qdapRegex, qdapTools, reports, reshape2, scales, stringdist, tidyr,
+    tm, venneuler, wordcloud, xlsx
 
 Package: qdapDictionaries
 Source: CRAN
@@ -333,6 +391,11 @@ Source: CRAN
 Version: 0.9-8
 Hash: 3e8627a2a5bd45c9bad6112acfc231d9
 
+Package: registry
+Source: CRAN
+Version: 0.3
+Hash: f9447c26b51b8c96f53720c5ff862c93
+
 Package: reports
 Source: CRAN
 Version: 0.1.4
@@ -354,18 +417,37 @@ Source: CRAN
 Version: 0.1.1
 Hash: 86c53487ce7f82f0a7cc11c816060910
 
+Package: rmarkdown
+Source: CRAN
+Version: 1.6
+Hash: 40f4034a7b8e28edc2b384bdb0c4d537
+Requires: jsonlite, htmltools, stringr, base64enc, caTools, evaluate,
+    knitr, rprojroot, yaml
+
+Package: rngtools
+Source: CRAN
+Version: 1.2.4
+Hash: 4db0661fe95ab6eb3d6339495bf22003
+Requires: digest, pkgmaker, stringr
+
+Package: rprojroot
+Source: CRAN
+Version: 1.2
+Hash: fdcac51a7f47decd60556ceefc3c26b1
+Requires: backports
+
 Package: scales
 Source: CRAN
 Version: 0.4.1
 Hash: 6368a3249d52d20b366191e9349690b6
-Requires: RColorBrewer, Rcpp, dichromat, labeling, plyr, munsell
+Requires: RColorBrewer, Rcpp, dichromat, labeling, munsell, plyr
 
 Package: shiny
 Source: CRAN
 Version: 1.0.3
 Hash: f133585c72ea31592f663e68c6ff0b3e
-Requires: R6, digest, jsonlite, mime, sourcetools, xtable, httpuv,
-    htmltools
+Requires: R6, digest, htmltools, httpuv, jsonlite, mime, sourcetools,
+    xtable
 
 Package: shinythemes
 Source: CRAN
@@ -426,14 +508,7 @@ Package: tidyr
 Source: CRAN
 Version: 0.6.0
 Hash: 918c557566b50123eb14aa2e585cdc5e
-Requires: Rcpp, glue, magrittr, rlang, stringi, tibble, tidyselect,
-    dplyr, purrr
-
-Package: tidyselect
-Source: CRAN
-Version: 0.1.1
-Hash: b4a923c118b74d3e7ab54563b32d4ed9
-Requires: Rcpp, glue, rlang
+Requires: Rcpp, dplyr, lazyeval, magrittr, stringi, tibble
 
 Package: tm
 Source: CRAN
@@ -445,7 +520,7 @@ Package: twitteR
 Source: CRAN
 Version: 1.1.9
 Hash: 494835cf1d1ed474231ad11a7dde1adb
-Requires: DBI, rjson, bit64, httr
+Requires: DBI, bit64, httr, rjson
 
 Package: venneuler
 Source: CRAN
@@ -475,3 +550,8 @@ Package: xtable
 Source: CRAN
 Version: 1.8-2
 Hash: 7293235cfcc14cdff1ce7fd1a0212031
+
+Package: yaml
+Source: CRAN
+Version: 2.1.14
+Hash: c81230c3a7d9ba20607ad6b4331173d1
