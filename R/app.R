@@ -36,35 +36,38 @@ app <- shinyApp(
         tags$div(title = "Choose the type of output you want to view",
                  selectInput("outputstyle",
                              label = "Select output type",
-                             choices = c("Density plot (week)",
-                                         "Density plot (day)",
+                             choices = c("Density plot",
                                          "Platforms",
                                          "Emotions plot",
                                          "Wordcloud",
                                          "Network"))
                  ),
 
-        tags$div(title = "Request data for a given time period",
                  conditionalPanel(
-                   condition = "input.outputstyle == 'Density plot (week)'",
-                   dateRangeInput("daterange",
-                                  label = "Date Range",
-                                  start = as.POSIXct(Sys.Date() - 8),
-                                  end = as.POSIXct(Sys.Date() - 1),
-                                  max = as.POSIXct(Sys.Date()),
-                                  format = "d M",
-                                  separator = "to"))
-                 ),
+                   condition = "input.outputstyle == 'Density plot'",
 
-        tags$div(title = "Request data for a particular day",
-                 conditionalPanel(
-                   condition = "input.outputstyle == 'Density plot (day)'",
-                   dateInput("singledate",
-                             label = "Date: ",
-                             value = as.POSIXct(Sys.Date()) - 1,
-                             max = as.POSIXct(Sys.Date()),
-                             format = "D dd M yyyy"))
-                 ),
+                   radioButtons(
+                     "densityPeriod", NULL, choices = c("Extended", "Daily")
+                     ),
+
+                   conditionalPanel(
+                     condition = "input.densityPeriod == 'Extended'",
+                     dateRangeInput("daterange",
+                                    label = "Date Range",
+                                    start = as.POSIXct(Sys.Date() - 8),
+                                    end = as.POSIXct(Sys.Date() - 1),
+                                    max = as.POSIXct(Sys.Date()),
+                                    format = "dd M yyyy",
+                                    separator = "to")),
+
+                   conditionalPanel(
+                     condition = "input.densityPeriod == 'Daily'",
+                     dateInput("singledate",
+                               label = "Date: ",
+                               value = as.POSIXct(Sys.Date()) - 1,
+                               max = as.POSIXct(Sys.Date()),
+                               format = "D dd M yyyy"))
+                   ),
 
         conditionalPanel(condition = "input.outputstyle == 'Platforms'"),
 
@@ -135,22 +138,25 @@ app <- shinyApp(
       RT <- main_objects$retweets
       polWordTable <- createWordList(pol)
 
-      # options for the various plots
-      if (input$outputstyle == "Density plot (week)") {
-        checkPeriod <- dataInput()
-        dW <- plotDensity(data = checkPeriod,
-                          entry = input$searchTerm,
-                          daily = FALSE)
-        dW
-      }
-      else if (input$outputstyle == "Density plot (day)") {
-        checkday <- dplyr::filter(dataInput(),
-                                  mday(created) == day(input$singledate))
-        densDay <- plotDensity(checkday,
-                               entry = input$searchTerm,
-                               daily = TRUE,
-                               input = input$singledate)
-        densDay
+      # Options for the various outputs
+      if (input$outputstyle == "Density plot") {
+        if (input$densityPeriod == "Extended") {
+          checkPeriod <- dataInput()
+          dW <- plotDensity(data = checkPeriod,
+                            entry = input$searchTerm,
+                            daily = FALSE)
+          dW
+        } else if (input$densityPeriod == "Daily") {
+          checkday <- dplyr::filter(
+            dataInput(),
+            lubridate::mday(created) == lubridate::day(input$singledate)
+            )
+          densDay <- plotDensity(checkday,
+                                 entry = input$searchTerm,
+                                 daily = TRUE,
+                                 input = input$singledate)
+          densDay
+        }
       }
       else if (input$outputstyle == "Platforms") {
         temp_data <- dataInput()
