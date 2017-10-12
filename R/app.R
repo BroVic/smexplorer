@@ -7,8 +7,6 @@
 #' @importFrom network %v%
 app <- shinyApp(
   ui = fluidPage(
-    theme = shinythemes::shinytheme("superhero"),
-
     titlePanel(title = "SMExplorer",
                windowTitle = "Shiny app for social media metrics"),
 
