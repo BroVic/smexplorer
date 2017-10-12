@@ -2,8 +2,8 @@
 
 export(explore)
 import(ggplot2)
-import(lubridate)
 import(shiny)
 import(tm)
-importFrom(dplyr,"%>%")
+importFrom(lubridate,day)
+importFrom(lubridate,mday)
 importFrom(network,"%v%")
