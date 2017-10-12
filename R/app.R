@@ -1,7 +1,8 @@
 #' SMExplorer Shiny application object
 
 #' @return A Shiny application object
-#' @import lubridate
+#' @importFrom lubridate mday
+#' @importFrom lubridate day
 #' @import shiny
 #' @importFrom network %v%
 app <- shinyApp(
@@ -147,10 +148,8 @@ app <- shinyApp(
                             daily = FALSE)
           dW
         } else if (input$densityPeriod == "Daily") {
-          checkday <- dplyr::filter(
-            dataInput(),
-            lubridate::mday(created) == lubridate::day(input$singledate)
-            )
+          tmp <- dataInput()
+          checkday <- tmp[mday(created) == day(input$singledate), ]
           densDay <- plotDensity(checkday,
                                  entry = input$searchTerm,
                                  daily = TRUE,
@@ -194,11 +193,10 @@ app <- shinyApp(
       }
       else if (input$outputstyle == "Network") {
         col3 <- color()
-        RT <- dplyr::mutate(RT,
-                            sender = substr(text, 5, regexpr(':', text) - 1))
-        edglst <- as.data.frame(cbind(sender = tolower(RT$sender),
-                                      receiver = tolower(RT$screenName)))
-        edglst <- dplyr::count(edglst, sender, receiver)
+        RT$sender <- tolower(substr(RT$text, 5, regexpr(":", RT$text) - 1))
+        edglst <- as.data.frame(table(RT$sender, tolower(RT$screenName)),
+                                responseName = "n" )
+        edglst <- edglst[edglst$n != 0, ]
         rtnet <- network::network(edglst,
                                   matrix.type = 'edgelist',
                                   directed = TRUE,
