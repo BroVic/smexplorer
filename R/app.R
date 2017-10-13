@@ -1,8 +1,6 @@
 #' SMExplorer Shiny application object
 
 #' @return A Shiny application object
-#' @importFrom lubridate mday
-#' @importFrom lubridate day
 #' @import shiny
 #' @importFrom network %v%
 app <- shinyApp(
@@ -61,7 +59,7 @@ app <- shinyApp(
 
                    conditionalPanel(
                      condition = "input.densityPeriod == 'Daily'",
-                     dateInput("singledate",
+                     dateInput("oneday",
                                label = "Date: ",
                                value = as.POSIXct(Sys.Date()) - 1,
                                max = as.POSIXct(Sys.Date()),
@@ -144,15 +142,18 @@ app <- shinyApp(
           dW <- plotDensity(data = checkPeriod,
                             entry = input$searchTerm,
                             daily = FALSE)
-          dW
+          print(dW)
         } else if (input$densityPeriod == "Daily") {
           tmp <- dataInput()
-          checkday <- tmp[mday(created) == day(input$singledate), ]
-          densDay <- plotDensity(checkday,
+          index <- which(
+            lubridate::mday(tmp$created) == lubridate::day(input$oneday)
+            )
+          checked_day <- tmp[index, ]
+          densDay <- plotDensity(checked_day,
                                  entry = input$searchTerm,
                                  daily = TRUE,
-                                 input = input$singledate)
-          densDay
+                                 input = input$oneday)
+          print(densDay)
         }
       }
       else if (input$outputstyle == "Platforms") {
