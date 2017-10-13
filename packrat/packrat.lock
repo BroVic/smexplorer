@@ -1,6 +1,6 @@
 PackratFormat: 1.4
 PackratVersion: 0.4.8.1
-RVersion: 3.4.1
+RVersion: 3.4.2
 Repos: CRAN=https://cran.rstudio.com/,
     CRANextra=http://www.stats.ox.ac.uk/pub/RWin
 
@@ -18,13 +18,6 @@ Package: NLP
 Source: CRAN
 Version: 0.1-9
 Hash: bd55f87ab2c40bdb7310eb7d56d395f4
-
-Package: NMF
-Source: CRAN
-Version: 0.20.6
-Hash: 632aad207ab2e551b33990c9f09ab8af
-Requires: RColorBrewer, colorspace, digest, doParallel, foreach,
-    ggplot2, gridBase, pkgmaker, registry, reshape2, rngtools, stringr
 
 Package: R6
 Source: CRAN
@@ -140,12 +133,6 @@ Source: CRAN
 Version: 0.6.12
 Hash: e53fb8c58673df868183697e39a6a4d6
 
-Package: doParallel
-Source: CRAN
-Version: 1.0.10
-Hash: df91a7abfa938c06ad87b9a2b9269adb
-Requires: foreach, iterators
-
 Package: dplyr
 Source: CRAN
 Version: 0.7.1
@@ -158,12 +145,6 @@ Source: CRAN
 Version: 0.10.1
 Hash: 54d95f4ec6d0300100413ed0127d89ae
 Requires: stringr
-
-Package: foreach
-Source: CRAN
-Version: 1.4.3
-Hash: cd53ef4cf29dc59ce3f8c5c1af735fd1
-Requires: iterators
 
 Package: gdata
 Source: CRAN
@@ -187,11 +168,6 @@ Package: glue
 Source: CRAN
 Version: 1.1.1
 Hash: dfd5a27768175ae51d08dc6beba1ef11
-
-Package: gridBase
-Source: CRAN
-Version: 0.4-7
-Hash: d4b7f73c0fdf11d18d1e1ae1643ac4ec
 
 Package: gridExtra
 Source: CRAN
@@ -241,12 +217,7 @@ Requires: irlba, magrittr, pkgconfig
 Package: irlba
 Source: CRAN
 Version: 2.1.2
-Hash: 1600a8e3c31405b352c652429c46ecd2
-
-Package: iterators
-Source: CRAN
-Version: 1.0.8
-Hash: 488b93c2a4166db0d15f1e8d882cb1d4
+Hash: f44d402baf428444773ba69ec0c503fd
 
 Package: jsonlite
 Source: CRAN
@@ -257,7 +228,7 @@ Package: knitr
 Source: CRAN
 Version: 1.17
 Hash: f6b2bf543ee3e25f5b92bb46f9958c5f
-Requires: digest, stringr, evaluate, highr, markdown, yaml
+Requires: digest, highr, yaml, markdown, stringr, evaluate
 
 Package: labeling
 Source: CRAN
@@ -329,12 +300,6 @@ Source: CRAN
 Version: 2.0.1
 Hash: 0dda4a2654a22b36a715c2b0b6fbacac
 
-Package: pkgmaker
-Source: CRAN
-Version: 0.22
-Hash: 2e5fc2a6b7eaeb1e1d397a8dc5f54480
-Requires: digest, registry, stringr, xtable
-
 Package: plogr
 Source: CRAN
 Version: 0.1-1
@@ -358,8 +323,8 @@ Hash: 77da8f1df873a4b91e5c4a68fe2fb1b6
 
 Package: qdap
 Source: CRAN
-Version: 2.2.5
-Hash: df3fbe13493042eb140715d84936f533
+Version: 2.2.8
+Hash: 5508205a5e676b4acd19614c1431e5a4
 Requires: NLP, RColorBrewer, RCurl, XML, chron, dplyr, gdata, gender,
     ggplot2, gridExtra, igraph, openNLP, plotrix, qdapDictionaries,
     qdapRegex, qdapTools, reports, reshape2, scales, stringdist, tidyr,
@@ -388,13 +353,8 @@ GithubSha1: 34cc3f26295b968550553fd26d74bfd970457796
 
 Package: rJava
 Source: CRAN
-Version: 0.9-8
-Hash: 3e8627a2a5bd45c9bad6112acfc231d9
-
-Package: registry
-Source: CRAN
-Version: 0.3
-Hash: f9447c26b51b8c96f53720c5ff862c93
+Version: 0.9-9
+Hash: ebf54080d6f36f3814cce27e5325d4e3
 
 Package: reports
 Source: CRAN
@@ -421,14 +381,8 @@ Package: rmarkdown
 Source: CRAN
 Version: 1.6
 Hash: 40f4034a7b8e28edc2b384bdb0c4d537
-Requires: jsonlite, htmltools, stringr, base64enc, caTools, evaluate,
-    knitr, rprojroot, yaml
-
-Package: rngtools
-Source: CRAN
-Version: 1.2.4
-Hash: 4db0661fe95ab6eb3d6339495bf22003
-Requires: digest, pkgmaker, stringr
+Requires: base64enc, jsonlite, yaml, rprojroot, caTools, htmltools,
+    stringr, evaluate, knitr
 
 Package: rprojroot
 Source: CRAN
@@ -448,12 +402,6 @@ Version: 1.0.3
 Hash: f133585c72ea31592f663e68c6ff0b3e
 Requires: R6, digest, htmltools, httpuv, jsonlite, mime, sourcetools,
     xtable
-
-Package: shinythemes
-Source: CRAN
-Version: 1.1.1
-Hash: d15f59eaa7a9a0668cea3af7f477820c
-Requires: shiny
 
 Package: slam
 Source: CRAN
@@ -527,6 +475,11 @@ Source: CRAN
 Version: 1.1-0
 Hash: c1a4fa76085e34423345a09241b2df03
 Requires: rJava
+
+Package: viridisLite
+Source: CRAN
+Version: 0.2.0
+Hash: 10f0c25af3dc84eaae10f5854f47efdb
 
 Package: wordcloud
 Source: CRAN
