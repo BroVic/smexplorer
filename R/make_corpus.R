@@ -3,12 +3,12 @@
 #' @import tm
 make_corpus <- function(GText, stem = TRUE) {
   corp <- VCorpus(VectorSource(GText))
-  corp <- tm_map(removePunctuation(corp))
-  corp <- tm_map(stripWhitespace(corp))
-  corp <- tm_map(content_transformer(tolower(corp)))
-  corp <- tm_map(removeWords(corp), stopwords("english"))
+  corp <- tm_map(corp, removePunctuation)
+  corp <- tm_map(corp, stripWhitespace)
+  corp <- tm_map(corp, content_transformer(tolower))
+  corp <- tm_map(corp, removeWords, stopwords("english"))
   if(stem)
-    corp <- tm_map(stemDocument(corp))
+    corp <- tm_map(corp, stemDocument)
   names(corp) <- names(GText)
   corp
 }
