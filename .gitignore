@@ -1,11 +1,7 @@
-.Rproj.user
 .Rhistory
+.Rproj.user/
 .RData
-.Ruserdata
 .httr-oauth
-sandbox
-packrat/lib*/
-packrat/src*/
 *.swp
 tests/testthat/app-ref.rds
 README.Rmd
