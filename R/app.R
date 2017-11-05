@@ -85,6 +85,7 @@ app <- shinyApp(
         hr(),
 
         em(a(href = "https://github.com/NESREA/SMExplorer/issues/new",
+             target = "_blank",
              "Report an issue"))
       ),
 
