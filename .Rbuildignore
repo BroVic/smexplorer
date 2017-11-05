@@ -1,5 +1,5 @@
-^SMExplorer.Rproj$
 ^\.Rproj\.user$
 ^\.httr-oauth$
 ^\.travis\.yml$
 ^README\.Rmd$
+^.*\.Rproj$
