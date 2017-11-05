@@ -1,10 +1,5 @@
-^.*\.Rproj$
+^SMExplorer.Rproj$
 ^\.Rproj\.user$
 ^\.httr-oauth$
 ^\.travis\.yml$
 ^README\.Rmd$
-^README-.*\.png$
-^error-badrequest\.PNG$
-^packrat/
-^\.Rprofile$
-^sandbox/
