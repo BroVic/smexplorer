@@ -51,11 +51,12 @@ app <- shinyApp(
                      condition = "input.densityPeriod == 'Extended'",
                      dateRangeInput("daterange",
                                     label = "Date Range",
-                                    start = NULL,
-                                    end = NULL,
-                                    max = as.POSIXct(Sys.Date()),
+                                    start = Sys.Date() - 7,
+                                    end = Sys.Date(),
+                                    max = Sys.Date(),
                                     format = "dd M yyyy",
-                                    separator = "to")),
+                                    separator = "to")
+                     ),
 
                    conditionalPanel(
                      condition = "input.densityPeriod == 'Daily'",
@@ -63,7 +64,8 @@ app <- shinyApp(
                                label = "Date: ",
                                value = NULL,
                                max = as.POSIXct(Sys.Date()),
-                               format = "D dd M yyyy"))
+                               format = "D dd M yyyy")
+                     )
                    ),
 
         conditionalPanel(condition = "input.outputstyle == 'Platforms'"),
@@ -110,10 +112,8 @@ app <- shinyApp(
 
     dataInput <- reactive({
       if (input$oauth) {
-        twitteR::setup_twitter_oauth(consumer_key,
-                                     consumer_secret,
-                                     access_token,
-                                     access_secret)
+        twitteR::setup_twitter_oauth(consumer_key, consumer_secret,
+                                     access_token, access_secret)
       }
       input$goButton
       tweets <- isolate(
@@ -132,9 +132,9 @@ app <- shinyApp(
       updateDateRangeInput(session,
                            "daterange",
                            label = "Date Range",
-                           start = NULL,
-                           end = NULL,
-                           max = as.POSIXct(Sys.Date()))
+                           start = Sys.Date() - 7,
+                           end = Sys.Date(),
+                           max = Sys.Date())
 
       updateDateInput(session,
                       "oneday",
@@ -198,7 +198,7 @@ app <- shinyApp(
         polText <- .processBagofWords(polSplit, polWordTable)
 
         corp <- .make_corpus(polText)
-        col3 <- color()
+        col3 <- .color()
         wordcloud::comparison.cloud(as.matrix(TermDocumentMatrix(corp)),
                                     max.words = 150,
                                     min.freq = 1,
@@ -208,7 +208,7 @@ app <- shinyApp(
                                     vfont = c("sans serif", "plain"))
       }
       else if (input$outputstyle == "Network") {
-        col3 <- color()
+        col3 <- .color()
         RT$sender <- tolower(substr(RT$text, 5, regexpr(":", RT$text) - 1))
         edglst <- as.data.frame(table(RT$sender, tolower(RT$screenName)),
                                 responseName = "n" )
