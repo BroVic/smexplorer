@@ -11,7 +11,7 @@ Installation
 This is accomplished by running these 2 lines in the R console. If you need to install R, get it [**here**](https://cloud.r-project.org):
 
 ``` r
-if (!require(devtools)) install.packages("devtools")
+if (!requireNamespace(devtools)) install.packages("devtools")
 devtools::install_github("NESREA/SMExplorer")
 ```
 
