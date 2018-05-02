@@ -7,7 +7,7 @@ Description: Contains functions and related objects to enable the exploratory
     analysis of social media data.
 SystemRequirements: Java Runtime Environment (>= 1.8.0)
 Depends:
-    R (>= 3.3.3),
+    R (>= 3.3),
     shiny (>= 1.0.3),
 Imports:
     RColorBrewer (>= 1.1-2),
