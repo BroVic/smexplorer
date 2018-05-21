@@ -79,7 +79,7 @@ globalVariables(c("x", "isRetweet", "created"))
   pol <- lapply(main$text, function(x) {
     txt <- gsub("(\\.|!|\\?)+\\s+|(\\++)", " ", x)
     txt <- gsub(" http[^[:blank:]]+", "", txt)
-    p_list <- qdap::polarity(txt)
+    p_list <- try(qdap::polarity(txt))
   })
   value <- list(original = main, retweets = retwts, polarity = pol)
   value
