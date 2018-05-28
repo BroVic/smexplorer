@@ -4,12 +4,24 @@
 ## Colours for plotting wordclouds
 ## These colours for different categories of tweets based on the 'sign'
 ## of the emotional valence
+#' @importFrom RColorBrewer brewer.pal
 .color <- function() {
-  col <- RColorBrewer::brewer.pal(3, 'Paired')
+  col <- brewer.pal(3, 'Paired')
   col
 }
 
+
+
+
+
+
+
+
+
+
+
 ## Compilation of lists on either side of emotive spectrum
+#' @importFrom tm stripWhitespace
 .createWordList <- function(x) {
   pwt <- sapply(x, function(p) {
     words <- c(positiveWords = paste(p[[1]]$pos.words[[1]], collapse = ' '),
@@ -17,10 +29,17 @@
     words <- gsub('-', '', words)
   })
   pwt <- apply(pwt, 1, function(x) paste(x, collapse = ' '))
-  pwt <- tm::stripWhitespace(pwt)
+  pwt <- stripWhitespace(pwt)
   pwt <- strsplit(pwt, ' ')
   pwt <- sapply(pwt, table)
 }
+
+
+
+
+
+
+
 
 ## Prepare text for Use in sentiment analysis
 #' @import tm
@@ -35,6 +54,15 @@
   names(corp) <- names(GText)
   corp
 }
+
+
+
+
+
+
+
+
+
 
 ## Let's R CMD check run smoothly
 globalVariables(c("x", "isRetweet", "created"))
@@ -66,12 +94,23 @@ globalVariables(c("x", "isRetweet", "created"))
   gg
 }
 
+
+
+
+
+
+
+
+
+
+
 ## Puts together intermediary data structures that are going to be
 ## used for the sentiment analysis.
 ## The function returns a list 'value' conataining 3 data structures:
 ## 1. main   - A data frame of original tweets
 ## 2. retwts - A data frame of retweets
 ## 3. pol    - A list of polarities for the text of original tweets
+#' @importFrom qdap polarity
 .prepareObjects <- function(data) {
   spl <- split(data, data$isRetweet)
   main <- spl[['FALSE']]
@@ -79,13 +118,22 @@ globalVariables(c("x", "isRetweet", "created"))
   pol <- lapply(main$text, function(x) {
     txt <- gsub("(\\.|!|\\?)+\\s+|(\\++)", " ", x)
     txt <- gsub(" http[^[:blank:]]+", "", txt)
-    p_list <- try(qdap::polarity(txt))
+    p_list <- polarity(txt)
   })
   value <- list(original = main, retweets = retwts, polarity = pol)
   value
 }
 
+
+
+
+
+
+
+
+
 ## Pre-treatment for text ahead of its use in plots.
+#' @importFrom tm removeWords
 .processBagofWords <- function(x, table) {
   pt <- sapply(x, function(subdata) {
     sdt <- paste(tolower(subdata$text), collapse = ' ')
@@ -93,9 +141,9 @@ globalVariables(c("x", "isRetweet", "created"))
     sdt <- gsub('[[:punct:]]', '', sdt)
   })
   pt <- structure(pt, names = c('negative', 'neutral', 'positive'))
-  pt['negative'] <- tm::removeWords(pt['negative'],
-                                    names(table$negativeWords))
-  pt['positive'] <- tm::removeWords(pt['positive'],
-                                    names(table$positiveWords))
+  pt['negative'] <- removeWords(pt['negative'],
+                                names(table$negativeWords))
+  pt['positive'] <- removeWords(pt['positive'],
+                                names(table$positiveWords))
   pt
 }
