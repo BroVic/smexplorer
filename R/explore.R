@@ -6,12 +6,10 @@
 #' function used to launch Shiny applications.
 #'
 #' @return This function does not return. See \code{\link{runApp}}
+#' @importFrom shiny shinyApp
 #' @export
 explore <- function()
 {
-  shiny::runApp(app,
-                launch.browser = TRUE,
-                display.mode = "normal",
-                quiet = TRUE)
+  shinyApp(ui = ui, server = server)
 }
 
