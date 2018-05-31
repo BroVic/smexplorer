@@ -1,8 +1,10 @@
 ## server.R
+
 #' @import shiny
 #' @importFrom graphics dotchart
 #' @importFrom graphics mtext
 #' @importFrom graphics par
+#' @importFrom graphics plot
 #' @importFrom lubridate day
 #' @importFrom lubridate mday
 #' @importFrom network %v%
@@ -15,6 +17,7 @@
 #' @importFrom twitteR twListToDF
 #' @importFrom wordcloud comparison.cloud
 server <- function(input, output, session) {
+
   dataInput <- reactive({
     if (input$oauth) {
       setup_twitter_oauth(consumer_key,
@@ -37,6 +40,8 @@ server <- function(input, output, session) {
     df
   })
 
+  ## We want to make sure that the date input
+  ## widgets are displaying current dates
   observe({
     updateDateRangeInput(
       session,
@@ -55,7 +60,6 @@ server <- function(input, output, session) {
       max = as.POSIXct(Sys.Date())
     )
   })
-
 
   output$twtDensity <- renderPlot({
     try({
@@ -115,10 +119,11 @@ server <- function(input, output, session) {
       })
     }
     else if (input$outputstyle == "Wordcloud") {
-      orig$emotionalValence <- sapply(pol, function(x)
-        x$all$polarity)
-      polSplit <- split(orig, sign(orig$emotionalValence))
       try({
+        orig$emotionalValence <- sapply(pol, function(x) {
+          x$all$polarity
+        })
+        polSplit <- split(orig, sign(orig$emotionalValence))
         polText <- .processBagofWords(polSplit, polWordTable)
         corp <- .make_corpus(polText)
         col3 <- .color()
@@ -194,7 +199,5 @@ server <- function(input, output, session) {
     note <- "tweets loaded."
     temp <- dataInput()
     paste(nrow(temp), note)
-
   })
-
 }
