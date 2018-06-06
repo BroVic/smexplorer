@@ -25,11 +25,14 @@ server <- function(input, output, session) {
                           access_token,
                           access_secret)
     }
+
     input$goButton
+    num <- input$numLoaded
+
     tweets <- isolate(
       searchTwitter(
         as.character(input$searchTerm),
-        n = input$numLoaded,
+        n = num,
         since = as.character(input$daterange[1]),
         until = as.character(input$daterange[2])
       )
