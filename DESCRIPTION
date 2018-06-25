@@ -1,6 +1,6 @@
 Package: SMExplorer
 Title: Interactive Exploratory Analysis of Social Media Data
-Version: 1.2.4
+Version: 1.2.5
 Authors@R: person("Victor", "Ordu", email = "victorordu@outlook.com",
     role = c("aut", "cre"))
 Description: Contains functions and related objects to enable the exploratory
