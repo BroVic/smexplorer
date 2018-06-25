@@ -2,14 +2,17 @@
 #'
 #' \code{explore} Launches a new Shiny application.
 #'
-#' This is a wrapper function for shiny::runApp, which is the core
-#' function used to launch Shiny applications.
+#' This is a wrapper function for \code{shiny::runApp}, which is a core
+#' function for launching Shiny applications.
 #'
 #' @return This function does not return. See \code{\link{runApp}}
+#'
+#' @importFrom shiny runApp
 #' @importFrom shiny shinyApp
+#'
 #' @export
 explore <- function()
 {
-  shinyApp(ui = ui, server = server)
+  runApp(shinyApp(ui = ui, server = server), launch.browser = TRUE)
 }
 

@@ -13,6 +13,6 @@ This function does not return. See \code{\link{runApp}}
 \code{explore} Launches a new Shiny application.
 }
 \details{
-This is a wrapper function for shiny::runApp, which is the core
-function used to launch Shiny applications.
+This is a wrapper function for \code{shiny::runApp}, which is a core
+function for launching Shiny applications.
 }
