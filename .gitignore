@@ -4,6 +4,4 @@
 .httr-oauth
 *.swp
 tests/testthat/app-ref.rds
-README.Rmd
-SMExplorer.Rproj
 .Rproj.user

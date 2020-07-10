@@ -1,0 +1,36 @@
+---
+output: github_document
+---
+
+<!-- README.md is generated from README.Rmd. Please edit that file -->
+
+```{r, echo=FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>",
+  fig.path = "README-"
+)
+```
+
+# smexplorer  [![Travis-CI Build Status](https://travis-ci.org/BroVic/smexplorer.svg?branch=master)](https://travis-ci.org/BroVic/smexplorer)  
+_An R package for the exploratory analysis of social media data_  
+
+## Installation
+This is accomplished by running these 2 lines in the R console. If you need to install R, get it [**here**](https://cloud.r-project.org):
+```{r installation, eval=FALSE}
+if (!requireNamespace(devtools)) install.packages("devtools")
+devtools::install_github("BroVic/smexplorer")
+```
+
+Note the following:
+
+* First-time installion of `smexplorer` on a **shiny, brand-new** R platform takes time, due to concomitant installation of several dependencies.
+* If installation breaks off due to network problems, rerun `devtools::install_github("BroVic/smexplorer")`
+* You need [Java Runtime Environment](http://www.java.com/download) (v. 1.8 or greater) to use `smexplorer`. Run `java -version` in the shell (e.g. *Command Prompt* for Windows, _Terminal_ for OS X) to check.
+
+Upon installing `smexplorer`, further instructions for its use can be obtained with
+```{r vignette, eval=FALSE}
+vignette("smexplorer")
+```
+
+[**Email**](mailto:victor.ordu@nesrea.gov.ng)
